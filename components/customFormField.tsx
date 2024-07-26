@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import {
   FormControl,
   FormDescription,
@@ -9,7 +10,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "./ui/input";
 import { FormFieldType } from "./Form/PatientForm";
-
+import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-number-input";
 
 interface CustomProps {
   control: any;
@@ -26,6 +28,7 @@ interface CustomProps {
 }
 
 const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
+  const [value, setValue] = useState("");
   const {
     control,
     fieldTypes,
@@ -53,14 +56,20 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
       );
       break;
 
-      case FormFieldType.PHONE_INPUT:
-        return(
-          <FormControl>
-            <PhoneInput>
-              
-            </PhoneInput>
-          </FormControl>
-        )
+    case FormFieldType.PHONE_INPUT:
+      return (
+        <FormControl>
+          <PhoneInput
+            placeholder={placeholder}
+            international
+            withCountryCallingCode
+            value={(field.value as string) || undefined}
+            defaultCountry="US"
+            onChange={field.onChange}
+            className="input-phone"
+          />
+        </FormControl>
+      );
     default:
       break;
   }

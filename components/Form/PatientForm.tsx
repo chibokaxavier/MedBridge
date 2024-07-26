@@ -9,6 +9,10 @@ import { Input } from "@/components/ui/input";
 import CustomFormField from "../customFormField";
 import { MdOutlineMail } from "react-icons/md";
 import { RiContactsLine } from "react-icons/ri";
+import SubmitButton from "../submitButton";
+import { useState } from "react";
+import { UserFormvalidation } from "@/lib/validation";
+import { useRouter } from "next/navigation";
 
 export enum FormFieldType {
   INPUT = "input",
@@ -20,22 +24,31 @@ export enum FormFieldType {
   SKELETON = "skeleton",
 }
 
-const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-});
 const Patient = () => {
-  // 1. Define your form.
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const router = useRouter();
+  const [isLoading, setisLoading] = useState(false);
+  const form = useForm<z.infer<typeof UserFormvalidation>>({
+    resolver: zodResolver(UserFormvalidation),
     defaultValues: {
-      username: "",
+      name: "",
+      email: "",
+      phone: "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  async function onSubmit({
+    name,
+    email,
+    phone,
+  }: z.infer<typeof UserFormvalidation>) {
+    setisLoading(true);
+    try {
+      // const userData = { name, email, phone };
+      // const user = await createuser(userData);
+      // if (user) router.push(`/patients/${user.$id}/register`);
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <Form {...form}>
@@ -65,9 +78,9 @@ const Patient = () => {
           fieldTypes={FormFieldType.PHONE_INPUT}
           name="phone"
           label="Phone"
-          placeholder="(234) 5678 91011"
+          placeholder="(234) 5678 9101"
         />
-        <Button type="submit">Submit</Button>
+        <SubmitButton isLoading={isLoading}>Get started</SubmitButton>
       </form>
     </Form>
   );
