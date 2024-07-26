@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "./ui/input";
 import { FormFieldType } from "./Form/PatientForm";
-import { RiContactsLine } from "react-icons/ri";
+
 
 interface CustomProps {
   control: any;
@@ -21,6 +21,7 @@ interface CustomProps {
   dateFormat?: string;
   showtimeselect?: Boolean;
   children?: React.ReactNode;
+  icon?: any;
   renderSkeleton?: (field: any) => React.ReactNode;
 }
 
@@ -34,12 +35,13 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
     disabled,
     dateFormat,
     showtimeselect,
+    icon,
   } = props;
   switch (fieldTypes) {
     case FormFieldType.INPUT:
       return (
         <div className="flex justify-center items-center pl-4 rounded-md border border-dark-500 bg-dark-400 ">
-          <RiContactsLine />
+          {icon}
           <FormControl>
             <Input
               placeholder={placeholder}
@@ -51,6 +53,14 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
       );
       break;
 
+      case FormFieldType.PHONE_INPUT:
+        return(
+          <FormControl>
+            <PhoneInput>
+              
+            </PhoneInput>
+          </FormControl>
+        )
     default:
       break;
   }

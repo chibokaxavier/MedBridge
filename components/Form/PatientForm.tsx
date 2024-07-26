@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import CustomFormField from "../customFormField";
+import { MdOutlineMail } from "react-icons/md";
+import { RiContactsLine } from "react-icons/ri";
 
 export enum FormFieldType {
   INPUT = "input",
@@ -48,6 +50,22 @@ const Patient = () => {
           name="name"
           label="Full Name"
           placeholder="John doe"
+          icon={<RiContactsLine />}
+        />
+        <CustomFormField
+          control={form.control}
+          fieldTypes={FormFieldType.INPUT}
+          name="email"
+          label="Email"
+          placeholder="Johndoe@gmail.com"
+          icon={<MdOutlineMail />}
+        />
+        <CustomFormField
+          control={form.control}
+          fieldTypes={FormFieldType.PHONE_INPUT}
+          name="phone"
+          label="Phone"
+          placeholder="(234) 5678 91011"
         />
         <Button type="submit">Submit</Button>
       </form>
