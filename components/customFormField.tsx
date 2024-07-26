@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "./ui/input";
 import { FormFieldType } from "./Form/PatientForm";
+import { RiContactsLine } from "react-icons/ri";
 
 interface CustomProps {
   control: any;
@@ -37,7 +38,8 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
   switch (fieldTypes) {
     case FormFieldType.INPUT:
       return (
-        <div className="flex rounded-md border border-dark-500 bg-dark-400 ">
+        <div className="flex justify-center items-center pl-4 rounded-md border border-dark-500 bg-dark-400 ">
+          <RiContactsLine />
           <FormControl>
             <Input
               placeholder={placeholder}

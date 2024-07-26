@@ -46,7 +46,7 @@ const Patient = () => {
           control={form.control}
           fieldTypes={FormFieldType.INPUT}
           name="name"
-          label="full name"
+          label="Full Name"
           placeholder="John doe"
         />
         <Button type="submit">Submit</Button>
