@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import CustomFormField from "../customFormField";
 import { MdOutlineMail } from "react-icons/md";
 import { RiContactsLine } from "react-icons/ri";
-import SubmitButton from "../submitButton";
+import SubmitButton from "../SubmitButton";
 import { useState } from "react";
 import { UserFormvalidation } from "@/lib/validation";
 import { useRouter } from "next/navigation";
