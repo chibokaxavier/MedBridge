@@ -1,4 +1,3 @@
-"use client";
 import RegisterForm from "@/components/Form/RegisterForm";
 import { getUser } from "@/lib/actions/patient.actions";
 import Image from "next/image";
