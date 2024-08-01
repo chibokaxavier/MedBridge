@@ -1,10 +1,22 @@
-import Patient from "@/components/Form/PatientForm";
+"use client";
 import RegisterForm from "@/components/Form/RegisterForm";
+import { getUser } from "@/lib/actions/patient.actions";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const Registration = () => {
+const Registration = async ({ params: { userId } }: SearchParamProps) => {
+//   const [user, setUser] = useState<User | null>(null);
+//   useEffect(() => {
+//     const get = async (userId: string) => {
+//       const user = await getUser(userId);
+//       setUser(user);
+//     };
+
+//     get(userId);
+//   }, [userId]);
+const user = await getUser(userId);
+
   return (
     <div className="flex h-screen max-h-screen">
       <section className="remove-scrollbar container my-auto">
@@ -16,7 +28,7 @@ const Registration = () => {
             alt="logo"
             className="mb-8 h-10 w-fit"
           />
-          <RegisterForm />
+          <RegisterForm user={user} />
           <div className="text-14-regular flex justify-between mt-10">
             <p className="justify-items-end xl:text-left text-dark-600">
               © 2024 MedBridge
@@ -29,11 +41,11 @@ const Registration = () => {
       </section>
 
       <Image
-        src="/registration.png"
+        src="/hospital.jpg"
         height={1000}
         width={1000}
         alt="patient"
-        className="side-img max-w-[70%]"
+        className="side-img max-w-[390px]"
       />
     </div>
   );

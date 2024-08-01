@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
-import { Form } from "@/components/ui/form";
+import { Form, FormControl } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import CustomFormField from "../customFormField";
 import { MdOutlineMail } from "react-icons/md";
@@ -13,18 +13,9 @@ import { useState } from "react";
 import { UserFormvalidation } from "@/lib/validation";
 import { useRouter } from "next/navigation";
 import { createUser } from "@/lib/actions/patient.actions";
+import { FormFieldType } from "./PatientForm";
 
-export enum FormFieldType {
-  INPUT = "input",
-  TEXTAREA = "textarea",
-  PHONE_INPUT = "phoneInput",
-  CHECKBOX = "checkbox",
-  DATE_PICKER = "datePicker",
-  SELECT = "select",
-  SKELETON = "skeleton",
-}
-
-const RegisterForm = () => {
+const RegisterForm = ({ user }: any) => {
   const router = useRouter();
   const [isLoading, setisLoading] = useState(false);
   const form = useForm<z.infer<typeof UserFormvalidation>>({
@@ -56,10 +47,18 @@ const RegisterForm = () => {
   };
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
-        <section className="mb-12 space-y-4">
-          <h1 className="header">Hi,there 👋</h1>
-          <p className="text-dark-700">Book your first appointment</p>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-12 flex-1"
+      >
+        <section className="space-y-4">
+          <h1 className="header">Welcome 👋</h1>
+          <p className="text-dark-700">Let us know more about yourself</p>
+        </section>
+        <section className="space-y-6">
+          <div className="mb-9 space-y-1">
+            <h2 className="sub-header">Personal information</h2>
+          </div>
         </section>
         <CustomFormField
           control={form.control}
@@ -69,21 +68,43 @@ const RegisterForm = () => {
           placeholder="John doe"
           icon={<RiContactsLine />}
         />
-        <CustomFormField
-          control={form.control}
-          fieldTypes={FormFieldType.INPUT}
-          name="email"
-          label="Email"
-          placeholder="Johndoe@gmail.com"
-          icon={<MdOutlineMail />}
-        />
-        <CustomFormField
-          control={form.control}
-          fieldTypes={FormFieldType.PHONE_INPUT}
-          name="phone"
-          label="Phone"
-          placeholder="(234) 5678 9101"
-        />
+        <div className="flex gap-6 flex-col xl:flex-row">
+          <CustomFormField
+            control={form.control}
+            fieldTypes={FormFieldType.INPUT}
+            name="email"
+            label="Email"
+            placeholder="Johndoe@gmail.com"
+            icon={<MdOutlineMail />}
+          />
+          <CustomFormField
+            control={form.control}
+            fieldTypes={FormFieldType.PHONE_INPUT}
+            name="phone"
+            label="Phone"
+            placeholder="(234) 5678 9101"
+          />
+        </div>
+        <div className="flex flex-col gap-6 xl:flex-row">
+          <CustomFormField
+            control={form.control}
+            fieldTypes={FormFieldType.DATE_PICKER}
+            name="birthDate"
+            label="Date of Birth"
+          />
+          <CustomFormField
+            control={form.control}
+            fieldTypes={FormFieldType.SKELETON}
+            name="gender"
+            label="Gender"
+            renderSkeleton={() => <FormControl>
+              
+            </FormControl>}
+          />
+        </div>{" "}
+        <div className="flex flex-col gap-6 xl:flex-row"></div>{" "}
+        <div className="flex flex-col gap-6 xl:flex-row"></div>{" "}
+        <div className="flex flex-col gap-6 xl:flex-row"></div>
         <SubmitButton isLoading={isLoading}>Get started</SubmitButton>
       </form>
     </Form>
