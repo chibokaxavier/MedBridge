@@ -1,9 +1,10 @@
 import Patient from "@/components/Form/PatientForm";
-import { Button } from "@/components/ui/button";
+import RegisterForm from "@/components/Form/RegisterForm";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 
-export default function Home() {
+const Registration = () => {
   return (
     <div className="flex h-screen max-h-screen">
       <section className="remove-scrollbar container my-auto">
@@ -15,7 +16,7 @@ export default function Home() {
             alt="logo"
             className="mb-8 h-10 w-fit"
           />
-          <Patient />
+          <RegisterForm />
           <div className="text-14-regular flex justify-between mt-10">
             <p className="justify-items-end xl:text-left text-dark-600">
               © 2024 MedBridge
@@ -28,12 +29,14 @@ export default function Home() {
       </section>
 
       <Image
-        src="/login-hero.png"
+        src="/registration.png"
         height={1000}
         width={1000}
         alt="patient"
-        className="side-img max-w-[50%]"
+        className="side-img max-w-[70%]"
       />
     </div>
   );
-}
+};
+
+export default Registration;
