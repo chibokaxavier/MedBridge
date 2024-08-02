@@ -13,6 +13,8 @@ import { FormFieldType } from "./Form/PatientForm";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { FaCalendarAlt } from "react-icons/fa";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 interface CustomProps {
   control: any;
@@ -29,6 +31,7 @@ interface CustomProps {
 }
 
 const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
+  const [startDate, setStartDate] = useState(new Date());
   const [value, setValue] = useState("");
   const {
     control,
@@ -75,6 +78,12 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
       return (
         <div className="flex rounded-md border border-dark-500 bg-dark-400 ">
           <FaCalendarAlt className="ml-2 h-4 w-4" />
+          <FormControl>
+            <DatePicker
+              selected={field.value}
+              onChange={(date) => field.onChange(date)}
+            />
+          </FormControl>
         </div>
       );
     default:
