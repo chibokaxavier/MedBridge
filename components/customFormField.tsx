@@ -24,7 +24,7 @@ interface CustomProps {
   placeholder?: string;
   disabled?: boolean;
   dateFormat?: string;
-  showtimeselect?: Boolean;
+  showTimeSelect?: boolean;
   children?: React.ReactNode;
   icon?: any;
   renderSkeleton?: (field: any) => React.ReactNode;
@@ -41,7 +41,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
     placeholder,
     disabled,
     dateFormat,
-    showtimeselect,
+    showTimeSelect,
     icon,
   } = props;
   switch (fieldTypes) {
@@ -76,12 +76,16 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
       );
     case FormFieldType.DATE_PICKER:
       return (
-        <div className="flex rounded-md border border-dark-500 bg-dark-400 ">
+        <div className="flex rounded-md border border-dark-500 justify-center items-center  bg-dark-400 ">
           <FaCalendarAlt className="ml-2 h-4 w-4" />
           <FormControl>
             <DatePicker
               selected={field.value}
               onChange={(date) => field.onChange(date)}
+              dateFormat={dateFormat ?? "MM/dd/yyyy"}
+              showTimeSelect={showTimeSelect ?? false}
+              timeInputLabel="Time:"
+              wrapperClassName="date-picker"
             />
           </FormControl>
         </div>
