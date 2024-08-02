@@ -12,6 +12,7 @@ import { Input } from "./ui/input";
 import { FormFieldType } from "./Form/PatientForm";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
+import { FaCalendarAlt } from "react-icons/fa";
 
 interface CustomProps {
   control: any;
@@ -69,6 +70,12 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
             className="input-phone"
           />
         </FormControl>
+      );
+    case FormFieldType.DATE_PICKER:
+      return (
+        <div className="flex rounded-md border border-dark-500 bg-dark-400 ">
+          <FaCalendarAlt className="ml-2 h-4 w-4" />
+        </div>
       );
     default:
       break;
