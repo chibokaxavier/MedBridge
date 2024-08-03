@@ -58,8 +58,13 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
           </FormControl>
         </div>
       );
-      break;
-
+      
+case FormFieldType.TEXTAREA:
+  return (
+    <Formcontrol>
+      
+    </Formcontrol>
+  )
     case FormFieldType.PHONE_INPUT:
       return (
         <FormControl>

@@ -201,6 +201,23 @@ const RegisterForm = ({ user }: any) => {
             placeholder="ABC123456789"
           />
         </div>
+        <div className="flex flex-col gap-6 xl:flex-row">
+          {" "}
+          <CustomFormField
+            control={form.control}
+            fieldTypes={FormFieldType.TEXTAREA}
+            name="allergies"
+            label="Allergies (if any)"
+            placeholder="Peanuts, Eggs, Chocoolate"
+          />
+          <CustomFormField
+            control={form.control}
+            fieldTypes={FormFieldType.TEXTAREA}
+            name="currentmedication"
+            label=" Current Medication"
+            placeholder="Ibuprofen 200mg, Amlodipine 10mg"
+          />
+        </div>
         <SubmitButton isLoading={isLoading}>Get started</SubmitButton>
       </form>
     </Form>
