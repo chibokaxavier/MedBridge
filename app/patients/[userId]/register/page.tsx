@@ -23,7 +23,7 @@ const user = await getUser(userId);
           <Image
             src="/Medbridge.png"
             height={1000}
-            width={2000}
+            width={1000}
             alt="logo"
             className="mb-8 h-10 w-fit"
           />

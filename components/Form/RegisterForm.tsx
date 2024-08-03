@@ -264,7 +264,11 @@ const RegisterForm = ({ user }: any) => {
           control={form.control}
           name="identificationDocument"
           label="Scanned copy of uploaded document"
-          renderSkeleton={(field) => <FormControl><FileUploader/></FormControl>}
+          renderSkeleton={(field) => (
+            <FormControl>
+              <FileUploader files={field.value} onChange={field.onChange} />
+            </FormControl>
+          )}
         />
         <SubmitButton isLoading={isLoading}>Get started</SubmitButton>
       </form>
