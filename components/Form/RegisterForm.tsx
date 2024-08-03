@@ -15,10 +15,11 @@ import { useRouter } from "next/navigation";
 import { createUser } from "@/lib/actions/patient.actions";
 import { FormFieldType } from "./PatientForm";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
-import { Doctors, GenderOptions } from "@/constants";
+import { Doctors, GenderOptions, IdentificationTypes } from "@/constants";
 import { Label } from "../ui/label";
 import { SelectItem } from "../ui/select";
 import Image from "next/image";
+import FileUploader from "../FileUploader";
 
 const RegisterForm = ({ user }: any) => {
   const router = useRouter();
@@ -233,6 +234,38 @@ const RegisterForm = ({ user }: any) => {
             placeholder="Appendectomy, Tonsillectomy"
           />
         </div>
+        <section className="space-y-6">
+          <div className="mb-9 space-y-1">
+            <h2 className="sub-header">Identification and verification</h2>
+          </div>
+        </section>
+        <CustomFormField
+          control={form.control}
+          fieldTypes={FormFieldType.SELECT}
+          name="identificationType"
+          label="Identification Type"
+          placeholder="Select an identification type"
+        >
+          {IdentificationTypes.map((type) => (
+            <SelectItem key={type} value={type}>
+              <p>{type}</p>
+            </SelectItem>
+          ))}
+        </CustomFormField>
+        <CustomFormField
+          control={form.control}
+          fieldTypes={FormFieldType.INPUT}
+          name="identificationNumber"
+          label="Identification number"
+          placeholder="123456789"
+        />
+        <CustomFormField
+          fieldTypes={FormFieldType.SKELETON}
+          control={form.control}
+          name="identificationDocument"
+          label="Scanned copy of uploaded document"
+          renderSkeleton={(field) => <FormControl><FileUploader/></FormControl>}
+        />
         <SubmitButton isLoading={isLoading}>Get started</SubmitButton>
       </form>
     </Form>
