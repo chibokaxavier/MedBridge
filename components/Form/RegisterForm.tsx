@@ -159,6 +159,13 @@ const RegisterForm = ({ user }: any) => {
             <h2 className="sub-header">Medical information</h2>
           </div>
         </section>
+        <CustomFormField
+          control={form.control}
+          fieldTypes={FormFieldType.SELECT}
+          name="primaryPhysician"
+          label="Primary physician"
+          placeholder="Select a physician"
+        />
         <div className="flex flex-col gap-6 xl:flex-row"></div>
         <SubmitButton isLoading={isLoading}>Get started</SubmitButton>
       </form>
