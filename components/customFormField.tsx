@@ -15,6 +15,7 @@ import PhoneInput from "react-phone-number-input";
 import { FaCalendarAlt } from "react-icons/fa";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { render } from "react-dom";
 
 interface CustomProps {
   control: any;
@@ -43,6 +44,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
     dateFormat,
     showTimeSelect,
     icon,
+    renderSkeleton,
   } = props;
   switch (fieldTypes) {
     case FormFieldType.INPUT:
@@ -90,6 +92,9 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
           </FormControl>
         </div>
       );
+    case FormFieldType.SKELETON:
+      return renderSkeleton ? renderSkeleton(field) : null;
+
     default:
       break;
   }

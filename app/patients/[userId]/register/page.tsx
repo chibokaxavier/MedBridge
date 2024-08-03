@@ -18,7 +18,7 @@ const user = await getUser(userId);
 
   return (
     <div className="flex h-screen max-h-screen">
-      <section className="remove-scrollbar container my-auto">
+      <section className="remove-scrollbar container ">
         <div className="sub-container gap-2 max-w-[496px]">
           <Image
             src="/Medbridge.png"
@@ -40,7 +40,8 @@ const user = await getUser(userId);
       </section>
 
       <Image
-        src="/hospital.jpg"
+         src="/hospital.jpg"
+        //  src="/register-img.png"
         height={1000}
         width={1000}
         alt="patient"
