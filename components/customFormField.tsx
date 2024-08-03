@@ -15,7 +15,7 @@ import PhoneInput from "react-phone-number-input";
 import { FaCalendarAlt } from "react-icons/fa";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { render } from "react-dom";
+
 
 interface CustomProps {
   control: any;
@@ -32,8 +32,6 @@ interface CustomProps {
 }
 
 const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
-  const [startDate, setStartDate] = useState(new Date());
-  const [value, setValue] = useState("");
   const {
     control,
     fieldTypes,
