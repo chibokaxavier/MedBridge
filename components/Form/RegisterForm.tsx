@@ -184,7 +184,23 @@ const RegisterForm = ({ user }: any) => {
           ))}
         </CustomFormField>
 
-        <div className="flex flex-col gap-6 xl:flex-row"></div>
+        <div className="flex flex-col gap-6 xl:flex-row">
+          {" "}
+          <CustomFormField
+            control={form.control}
+            fieldTypes={FormFieldType.INPUT}
+            name="insuranceProvider"
+            label="Insurance provider"
+            placeholder="BlueCross BlueShield"
+          />
+          <CustomFormField
+            control={form.control}
+            fieldTypes={FormFieldType.INPUT}
+            name="insurancePolicyNumber"
+            label="Insurance policy number"
+            placeholder="ABC123456789"
+          />
+        </div>
         <SubmitButton isLoading={isLoading}>Get started</SubmitButton>
       </form>
     </Form>
