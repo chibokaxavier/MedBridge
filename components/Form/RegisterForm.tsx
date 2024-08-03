@@ -122,7 +122,6 @@ const RegisterForm = ({ user }: any) => {
             )}
           />
         </div>
-
         <div className="flex flex-col gap-6 xl:flex-row">
           <CustomFormField
             control={form.control}
@@ -183,7 +182,6 @@ const RegisterForm = ({ user }: any) => {
             </SelectItem>
           ))}
         </CustomFormField>
-
         <div className="flex flex-col gap-6 xl:flex-row">
           {" "}
           <CustomFormField
@@ -216,6 +214,23 @@ const RegisterForm = ({ user }: any) => {
             name="currentmedication"
             label=" Current Medication"
             placeholder="Ibuprofen 200mg, Amlodipine 10mg"
+          />
+        </div>{" "}
+        <div className="flex flex-col gap-6 xl:flex-row">
+          {" "}
+          <CustomFormField
+            control={form.control}
+            fieldTypes={FormFieldType.TEXTAREA}
+            name="familyMedicalHistory"
+            label="Family medical history"
+            placeholder="Mother had brain cancer , Father had heart disease"
+          />
+          <CustomFormField
+            control={form.control}
+            fieldTypes={FormFieldType.TEXTAREA}
+            name="pastMedicalHistory"
+            label="Past medical history"
+            placeholder="Appendectomy, Tonsillectomy"
           />
         </div>
         <SubmitButton isLoading={isLoading}>Get started</SubmitButton>
