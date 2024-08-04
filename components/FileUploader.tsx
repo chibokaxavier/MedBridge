@@ -28,12 +28,7 @@ const FileUploader = ({ files, onChange }: FileUploaderProps) => {
         />
       ) : (
         <>
-          <Image
-            src="/upload.svg"
-            height={40}
-            width={40}
-            alt="upload"
-          />
+          <Image src="/upload.svg" height={40} width={40} alt="upload" />
           <div className="file-upload_label">
             <p className="text-14-regular">
               <span className="text-green-500">Click to upload</span> or drag
