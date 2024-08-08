@@ -305,13 +305,13 @@ const RegisterForm = ({ user }: any) => {
           control={form.control}
           name="treatmentConsent"
           label="I consent to treatment"
-        />{" "}
+        />
         <CustomFormField
           fieldTypes={FormFieldType.CHECKBOX}
           control={form.control}
           name="disclosureConsent"
           label="I consent to disclosure of information"
-        />{" "}
+        />
         <CustomFormField
           fieldTypes={FormFieldType.CHECKBOX}
           control={form.control}
