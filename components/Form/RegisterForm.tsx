@@ -55,7 +55,7 @@ const RegisterForm = ({ user }: any) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-12 flex-1"
+        className="space-y-12 flex-1 "
       >
         <section className="space-y-4">
           <h1 className="header">Welcome 👋</h1>
@@ -74,87 +74,103 @@ const RegisterForm = ({ user }: any) => {
           placeholder="John doe"
           icon={<RiContactsLine />}
         />
-        <div className="flex gap-6 flex-col xl:flex-row">
-          <CustomFormField
-            control={form.control}
-            fieldTypes={FormFieldType.INPUT}
-            name="email"
-            label="Email"
-            placeholder="Johndoe@gmail.com"
-            icon={<MdOutlineMail />}
-          />
-          <CustomFormField
-            control={form.control}
-            fieldTypes={FormFieldType.PHONE_INPUT}
-            name="phone"
-            label="Phone"
-            placeholder="(234) 5678 9101"
-          />
+        <div className="flex  w-full flex-col gap-6 xl:flex-row ">
+          <div className="w-full xl:w-1/2">
+            <CustomFormField
+              control={form.control}
+              fieldTypes={FormFieldType.INPUT}
+              name="email"
+              label="Email"
+              placeholder="Johndoe@gmail.com"
+              icon={<MdOutlineMail />}
+            />
+          </div>
+          <div className="w-full xl:w-1/2">
+            <CustomFormField
+              control={form.control}
+              fieldTypes={FormFieldType.PHONE_INPUT}
+              name="phone"
+              label="Phone"
+              placeholder="(234) 5678 9101"
+            />
+          </div>
         </div>
-        <div className="flex flex-col gap-6 xl:flex-row">
-          <CustomFormField
-            control={form.control}
-            fieldTypes={FormFieldType.DATE_PICKER}
-            name="birthDate"
-            label="Date of Birth"
-          />
-          <CustomFormField
-            fieldTypes={FormFieldType.SKELETON}
-            control={form.control}
-            name="gender"
-            label="Gender"
-            renderSkeleton={(field) => (
-              <FormControl>
-                <RadioGroup
-                  className="flex h-11 gap-6 xl:justify-between"
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  {GenderOptions.map((option, i) => (
-                    <div key={option + i} className="radio-group">
-                      <RadioGroupItem value={option} id={option} />
-                      <Label htmlFor={option} className="cursor-pointer ">
-                        {option}
-                      </Label>
-                    </div>
-                  ))}
-                </RadioGroup>
-              </FormControl>
-            )}
-          />
+        <div className="flex flex-col gap-6 xl:flex-row w-full">
+          <div className="w-full xl:w-1/2">
+            <CustomFormField
+              control={form.control}
+              fieldTypes={FormFieldType.DATE_PICKER}
+              name="birthDate"
+              label="Date of Birth"
+            />
+          </div>
+          <div className="w-full xl:w-1/2">
+            <CustomFormField
+              fieldTypes={FormFieldType.SKELETON}
+              control={form.control}
+              name="gender"
+              label="Gender"
+              renderSkeleton={(field) => (
+                <FormControl>
+                  <RadioGroup
+                    className="flex h-11 gap-6 xl:justify-between"
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    {GenderOptions.map((option, i) => (
+                      <div key={option + i} className="radio-group">
+                        <RadioGroupItem value={option} id={option} />
+                        <Label htmlFor={option} className="cursor-pointer ">
+                          {option}
+                        </Label>
+                      </div>
+                    ))}
+                  </RadioGroup>
+                </FormControl>
+              )}
+            />
+          </div>
         </div>
-        <div className="flex flex-col gap-6 xl:flex-row">
-          <CustomFormField
-            control={form.control}
-            fieldTypes={FormFieldType.INPUT}
-            name="address"
-            label="Address"
-            placeholder="14th street New york"
-            icon={<MdOutlineMail />}
-          />
-          <CustomFormField
-            control={form.control}
-            fieldTypes={FormFieldType.INPUT}
-            name="occupation"
-            label="Occupation"
-            placeholder="Software Engineer"
-          />
+        <div className="flex flex-col gap-6 xl:flex-row w-full">
+          <div className="w-full xl:w-1/2">
+            <CustomFormField
+              control={form.control}
+              fieldTypes={FormFieldType.INPUT}
+              name="address"
+              label="Address"
+              placeholder="14th street New York"
+              icon={<MdOutlineMail />}
+            />
+          </div>
+          <div className="w-full xl:w-1/2">
+            <CustomFormField
+              control={form.control}
+              fieldTypes={FormFieldType.INPUT}
+              name="occupation"
+              label="Occupation"
+              placeholder="Software Engineer"
+            />
+          </div>
         </div>
-        <div className="flex flex-col gap-6 xl:flex-row">
-          <CustomFormField
-            control={form.control}
-            fieldTypes={FormFieldType.INPUT}
-            name="emergencyContactName"
-            label="Emergency contact name"
-            placeholder="Guardian's name"
-          />
-          <CustomFormField
-            control={form.control}
-            fieldTypes={FormFieldType.PHONE_INPUT}
-            name="emergencyPhoneNumber"
-            label="Emergency phone number"
-            placeholder="(234) 5678 9101"
-          />
+        <div className="flex flex-col gap-6 xl:flex-row w-full">
+          <div className="w-full xl:w-1/2">
+            <CustomFormField
+              control={form.control}
+              fieldTypes={FormFieldType.INPUT}
+              name="emergencyContactName"
+              label="Emergency contact name"
+              placeholder="Guardian's name"
+            />
+          </div>
+          <div className="w-full xl:w-1/2">
+            <CustomFormField
+              control={form.control}
+              fieldTypes={FormFieldType.PHONE_INPUT}
+              name="emergencyPhoneNumber"
+              label="Emergency phone number"
+              placeholder="(234) 5678 9101"
+            />
+          </div>
         </div>
         <section className="space-y-6">
           <div className="mb-9 space-y-1">
@@ -183,56 +199,65 @@ const RegisterForm = ({ user }: any) => {
             </SelectItem>
           ))}
         </CustomFormField>
-        <div className="flex flex-col gap-6 xl:flex-row">
-          {" "}
-          <CustomFormField
-            control={form.control}
-            fieldTypes={FormFieldType.INPUT}
-            name="insuranceProvider"
-            label="Insurance provider"
-            placeholder="BlueCross BlueShield"
-          />
-          <CustomFormField
-            control={form.control}
-            fieldTypes={FormFieldType.INPUT}
-            name="insurancePolicyNumber"
-            label="Insurance policy number"
-            placeholder="ABC123456789"
-          />
+        <div className="flex flex-col gap-6 xl:flex-row w-full">
+          <div className="w-full xl:w-1/2">
+            <CustomFormField
+              control={form.control}
+              fieldTypes={FormFieldType.INPUT}
+              name="insuranceProvider"
+              label="Insurance provider"
+              placeholder="BlueCross BlueShield"
+            />
+          </div>
+          <div className="w-full xl:w-1/2">
+            <CustomFormField
+              control={form.control}
+              fieldTypes={FormFieldType.INPUT}
+              name="insurancePolicyNumber"
+              label="Insurance policy number"
+              placeholder="ABC123456789"
+            />
+          </div>
         </div>
-        <div className="flex flex-col gap-6 xl:flex-row">
-          {" "}
-          <CustomFormField
-            control={form.control}
-            fieldTypes={FormFieldType.TEXTAREA}
-            name="allergies"
-            label="Allergies (if any)"
-            placeholder="Peanuts, Eggs, Chocoolate"
-          />
-          <CustomFormField
-            control={form.control}
-            fieldTypes={FormFieldType.TEXTAREA}
-            name="currentmedication"
-            label=" Current Medication"
-            placeholder="Ibuprofen 200mg, Amlodipine 10mg"
-          />
-        </div>{" "}
-        <div className="flex flex-col gap-6 xl:flex-row">
-          {" "}
-          <CustomFormField
-            control={form.control}
-            fieldTypes={FormFieldType.TEXTAREA}
-            name="familyMedicalHistory"
-            label="Family medical history"
-            placeholder="Mother had brain cancer , Father had heart disease"
-          />
-          <CustomFormField
-            control={form.control}
-            fieldTypes={FormFieldType.TEXTAREA}
-            name="pastMedicalHistory"
-            label="Past medical history"
-            placeholder="Appendectomy, Tonsillectomy"
-          />
+        <div className="flex flex-col gap-6 xl:flex-row w-full">
+          <div className="w-full xl:w-1/2">
+            <CustomFormField
+              control={form.control}
+              fieldTypes={FormFieldType.TEXTAREA}
+              name="allergies"
+              label="Allergies (if any)"
+              placeholder="Peanuts, Eggs, Chocolate"
+            />
+          </div>
+          <div className="w-full xl:w-1/2">
+            <CustomFormField
+              control={form.control}
+              fieldTypes={FormFieldType.TEXTAREA}
+              name="currentmedication"
+              label="Current Medication"
+              placeholder="Ibuprofen 200mg, Amlodipine 10mg"
+            />
+          </div>
+        </div>
+        <div className="flex flex-col gap-6 xl:flex-row w-full">
+          <div className="w-full xl:w-1/2">
+            <CustomFormField
+              control={form.control}
+              fieldTypes={FormFieldType.TEXTAREA}
+              name="familyMedicalHistory"
+              label="Family medical history"
+              placeholder="Mother had brain cancer, Father had heart disease"
+            />
+          </div>
+          <div className="w-full xl:w-1/2">
+            <CustomFormField
+              control={form.control}
+              fieldTypes={FormFieldType.TEXTAREA}
+              name="pastMedicalHistory"
+              label="Past medical history"
+              placeholder="Appendectomy, Tonsillectomy"
+            />
+          </div>
         </div>
         <section className="space-y-6">
           <div className="mb-9 space-y-1">

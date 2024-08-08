@@ -5,21 +5,21 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 const Registration = async ({ params: { userId } }: SearchParamProps) => {
-//   const [user, setUser] = useState<User | null>(null);
-//   useEffect(() => {
-//     const get = async (userId: string) => {
-//       const user = await getUser(userId);
-//       setUser(user);
-//     };
+  //   const [user, setUser] = useState<User | null>(null);
+  //   useEffect(() => {
+  //     const get = async (userId: string) => {
+  //       const user = await getUser(userId);
+  //       setUser(user);
+  //     };
 
-//     get(userId);
-//   }, [userId]);
-const user = await getUser(userId);
+  //     get(userId);
+  //   }, [userId]);
+  const user = await getUser(userId);
 
   return (
     <div className="flex h-screen max-h-screen">
       <section className="remove-scrollbar container ">
-        <div className="sub-container gap-2 max-w-[496px]">
+        <div className="sub-container  max-w-[860px] flex-1 flex-col py-10">
           <Image
             src="/Medbridge.png"
             height={1000}
@@ -40,7 +40,7 @@ const user = await getUser(userId);
       </section>
 
       <Image
-         src="/hospital.jpg"
+        src="/hospital.jpg"
         //  src="/register-img.png"
         height={1000}
         width={1000}
